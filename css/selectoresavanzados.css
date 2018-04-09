@@ -1,0 +1,115 @@
+/*Imagen con atributo alt*/
+img[alt]{
+	border:5px solid blue;
+}
+/*Imagen con atributo SRC cadena exacta*/
+img[src="img/logo.png"]{
+	width: 400px;
+}
+/*^ = circunflejo*/
+/*Imagen con atributo SRC con el inicio
+de la cadena*/
+img[src^="img/"]{
+	width: 150px;
+}
+/*Imagen con atributo SRC con el final
+de la cadena*/
+img[src$="png"]{
+	width: 250px;
+}
+/*Imagen con atributo SRC en
+cualquier parte de la cadena*/
+img[src*="mg/"]{
+	width: 1000px;
+}
+/*El caracter ~ indica que estos 
+selectores están separados por espacios*/
+article[class~="resaltado"]{
+	border: 1px dashed blue;
+}
+article[class~="archivo"]{
+	border: 1px dashed red;
+}
+article[class~="ingles"]{
+	border: 1px dashed green;
+}
+/*El atributo class/id es una lista de 
+valores separados por guiones*/
+article[class|="ingles"]{
+	text-align: center;
+}
+
+/*Selector de secundarios.
+Seleccionar solamente las <p>
+que se encuentran inmediatamente
+después del <div>*/
+div > p{ /*solo hijos directos*/
+	color: blue;
+}
+/*Todos los elemento <p> serán
+seleccionados*/
+div p{
+	color: red;
+}
+
+/*Seleccionar sólo el elemento <p>
+que está inmediatamente después del 
+elemento <h2> - Hermano adyacente*/
+h2 + p{
+	color:green;	
+}
+/*Seleccionar todos los elementos <p>
+del elemento especificado
+- Hermano General*/
+h2 ~ p{
+	color:gray;
+}
+
+/*Poner en color rojo el texto de las secciones menos
+el id="rerefencias"*/
+#resumen,#experimento,#pruebas,#resultados,#conclusiones
+{
+	color: tomato;
+}
+/*Poner en color rosa el texto de las secciones menos
+el id="rerefencias"*/
+section:not(#referencias){
+	color: hotpink;
+}
+
+li:nth-child(odd){ /*Impares*/
+	color:green;
+}
+li:nth-child(even){ /*Pares*/
+	color:blue;
+}
+li:nth-child(5){ /*quinto elemento*/
+	color:red;
+}
+li:nth-last-child(1){ /*último elemento*/
+	color:yellow;
+}
+
+p:first-line{
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
