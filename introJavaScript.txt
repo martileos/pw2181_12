@@ -1,0 +1,47 @@
+var a,b = 6;
+undefined
+b
+6
+a
+undefined
+a=5
+5
+var c = a + b;
+undefined
+c
+11
+alert('JavaScript es bueno');
+undefined
+var respuesta=prompt("Dame un número",0);
+undefined
+respuesta
+"66"
+function suma(a,b){return a + b;}
+undefined
+suma
+ƒ suma(a,b){return a + b;}
+var sumaNumeros=function(a,b){return a + b;}
+undefined
+sumaNumeros
+ƒ (a,b){return a + b;}
+suma(6,7)
+13
+sumaNumeros(9,8)
+17
+document.write("Hola");
+undefined
+document.write("<article id='demo'></article>");
+undefined
+document.getElementById('demo').innerHTML="Mi article";
+"Mi article"
+document.write("<input type='text' id='txt'>");
+undefined
+document.getElementById('txt').value=81;
+81
+console.log("escribimos en la consola del navegador");
+VM14266:1 escribimos en la consola del navegador
+undefined
+document.write("<button>Da clic</button>");
+undefined
+document.write("<button onclick=alert('clic')>Da clic</button>");
+undefined
