@@ -11,15 +11,40 @@ var marvel = function(){
 			success: function(response){
 				if(response.code == 200){
 					$("#foto").attr("src",response.data.results[0].thumbnail.path+"."+response.data.results[0].thumbnail.extension);
+					$("#nombre").html(response.data.results[0].name);
+					cantidadComics=response.data.results[0].comics.returned;
+					for(var i=0;i<cantidadComics;i++){
+						comics+=response.data.results[0].comics.items[i].name+"<br>";
+					}
+					$("#comics").html("Comics: <br>"+comics);
 				}
 			}
 		});
 
 	}
+	var teclaPersonaje = function(tecla){
+		//Enter = 10 + 13
+		//Retorno de carro y avance de línea
+		if(tecla.which == 13){ //Enter ASCII
+			Buscar();
+		}
+	}
+
 	$("#btnBuscar").on("click",Buscar);	
+	$("#txtPersonaje").on("keypress",teclaPersonaje);
 }
 
 $(document).ready(marvel);
+
+
+
+
+
+
+
+
+
+
 
 
 
