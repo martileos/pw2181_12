@@ -1,5 +1,3 @@
-
-
 var inicioApp = function(){
 	var Aceptar = function(){
 		var usuario=$("#txtUsuario").val();
@@ -16,7 +14,12 @@ var inicioApp = function(){
 			data: parametros,
 			success: function(response){
 				if(response.respuesta == true){
-					alert("Bienvenido");
+					//Ocultamos el inicio
+					$("#secInicio").hide("slow");
+					//Aparecemos usuarios
+					$("#frmUsuarios").show("slow");
+					//Cursor en el primer cuadro de texto
+					$("#txtNombreUsuario").focus();
 				}else{
 					alert("usuario o clave incorrecta(s)");
 				}
@@ -26,9 +29,51 @@ var inicioApp = function(){
 			}
 		});
 	}
+	var buscarUsuario = function(){
+		var usuario = $("#txtNombreUsuario").val();
+		var parametros = "opc=buscarUsuario"+
+						 "&usuario="+usuario+
+						 "&aleatorio="+Math.random();
+		if(usuario != ""){
+			$.ajax({
+				cache:false,
+				type: "POST",
+				dataType: "json",
+				url: "php/buscarusuario.php",
+				data: parametros,
+				success: function(response){
+					if(response.respuesta == true){
+						$("#txtNombre").val(response.nombre);
+						$("#txtClaveUsuario").val(response.clave);
+					}else{
+						$("#txtNombre").focus();
+					}
+				},
+				error: function(xhr,ajaxOptions,thrownError){
+
+				}
+			});
+		}
+	}
+	var teclaNombreUsuario = function(tecla){
+		if(tecla.which == 13){ //Enter 10+13
+			buscarUsuario();
+		}
+	}
 	$("#btnAceptar").on("click",Aceptar);
+	$("#txtNombreUsuario").on("keypress",teclaNombreUsuario);
 }
 $(document).ready(inicioApp);
+
+
+
+
+
+
+
+
+
+
 
 
 
